@@ -1,0 +1,150 @@
+`timescale 1ns / 1ps
+
+module fpgatestbench();
+
+   reg io1reg,io2reg,io3reg,io4reg,io5reg,io6reg;
+   
+   /*AUTOWIRE*/
+   // Beginning of automatic wires (for undeclared instantiated-module outputs)
+   wire			io1;			// To/From uut of fpga.v
+   wire			io2;			// To/From uut of fpga.v
+   wire			io3;			// To/From uut of fpga.v
+   wire			io4;			// To/From uut of fpga.v
+   wire			io5;			// To/From uut of fpga.v
+   wire			io6;			// To/From uut of fpga.v
+   // End of automatics
+   /*AUTOREGINPUT*/
+   // Beginning of automatic reg inputs (for undeclared instantiated-module inputs)
+   reg			clk;			// To uut of fpga.v
+   // End of automatics
+  
+   fpga uut(/*AUTOINST*/
+	    // Inouts
+	    .io1			(io1),
+	    .io2			(io2),
+	    .io3			(io3),
+	    .io4			(io4),
+	    .io5			(io5),
+	    .io6			(io6),
+	    // Inputs
+	    .clk			(clk));
+    initial
+     begin
+	io2reg=1'b0;
+	B=1'b0;
+	C=1'b1;
+	D=1'b0;
+	K=1'b0;
+	#30
+	io2reg=1'b0;
+	B=1'b1;
+	C=1'b0;
+	D=1'b0;
+	K=1'b1;
+	#30
+	io2reg=1'b0;
+	B=1'b1;
+	C=1'b1;
+	D=1'b1;
+	K=1'b1;
+	#30
+	io2reg=1'b1;
+	B=1'b1;
+	C=1'b1;
+	D=1'b0;
+	K=1'b0;
+	#30
+	io2reg=1'b1;
+	B=1'b1;
+	C=1'b0;
+	D=1'b0;
+	K=1'b0;
+	#30
+	io2reg=1'b0;
+	B=1'b0;
+	C=1'b1;
+	D=1'b0;
+	K=1'b1;
+	#30
+	io2reg=1'b0;
+	B=1'b1;
+	C=1'b1;
+	D=1'b0;
+	K=1'b0;
+	#30
+	io2reg=1'b0;
+	B=1'b1;
+	C=1'b1;
+	D=1'b1;
+	K=1'b1;
+	#30
+	  io2reg=1'b1;
+	B=1'b1;
+	C=1'b1;
+	D=1'b0;
+	K=1'b0;
+	#30
+	  io2reg=1'b1;
+	B=1'b1;
+	C=1'b1;
+	D=1'b0;
+	K=1'b0;
+	#30
+	  io2reg=1'b0;
+	B=1'b0;
+	C=1'b1;
+	D=1'b0;
+	K=1'b1;
+	#30
+	  io2reg=1'b0;
+	B=1'b1;
+	C=1'b1;
+	D=1'b0;
+	K=1'b0;
+	#30
+	  io2reg=1'b0;
+	B=1'b0;
+	C=1'b1;
+	D=1'b0;
+	K=1'b0;
+	#30
+	  io2reg=1'b0;
+	B=1'b1;
+	C=1'b0;
+	D=1'b0;
+	K=1'b1;
+	#30
+	  io2reg=1'b0;
+	B=1'b1;
+	C=1'b1;
+	D=1'b0;
+	K=1'b1;
+	#30
+	  io2reg=1'b1;
+	B=1'b0;
+	C=1'b1;
+	D=1'b0;
+	K=1'b0;
+	#30
+	  io2reg=1'b1;
+	B=1'b0;
+	C=1'b0;
+	D=1'b0;
+	K=1'b0;
+	#30
+	  io2reg=1'b0;
+	B=1'b1;
+	C=1'b1;
+	D=1'b0;
+	K=1'b1;
+	#30
+	  io2reg=1'b1;
+	B=1'b1;
+	C=1'b1;
+	D=1'b0;
+	K=1'b0;
+	#30
+   
+	$finish;
+     end
+endmodule
