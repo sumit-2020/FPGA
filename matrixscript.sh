@@ -1,9 +1,9 @@
 i=1
 arr=($(<matrixarg.txt))
 
-for j in {1..2}
+for j in {1..9}
 do
-for k in {1..2}
+for k in {1..9}
 do
 f="matrix${j}_${k}.v"
 cp matrix1.v matrix${j}_${k}.v

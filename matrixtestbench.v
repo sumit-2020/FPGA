@@ -1,13 +1,19 @@
 `timescale 1ns / 1ps
 
-module matrixtestbench(wires);
-inout [18:1] wires;
+module matrixtestbench(wtop,wbottom,wright,wleft);
+ inout [5-1:0] wtop,wbottom;
+ inout [4-1:0] wleft,wright;  
+  
    matrix1_1 uut(/*AUTOINST*/
 		 // Inouts
-		 .wires			(wires[18:1]));
+		 .wtop			(wtop[5-1:0]),
+		 .wbottom		(wbottom[5-1:0]),
+		 .wleft			(wleft[4-1:0]),
+		 .wright		(wright[4-1:0]));
+		 
    reg temp;
    
-   assign wires[7]=temp;
+   assign wright[1]=temp;
    
    initial begin
      temp=1'b0;

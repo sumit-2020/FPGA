@@ -47,7 +47,7 @@ module clb1(
 	mux4select=2'b10;
 	mux5select=2'b00;
 	mux6select=2'b00;
-	mem=16'b0010111001011011;
+	mem=16'b0101010110101010;
 	comboption=2'b00;
 	o2m1_0=1'b0;
 	o2m2_0=1'b0;
@@ -55,8 +55,8 @@ module clb1(
 	o2m1_1=1'b1;
 	o2m2_1=1'b1;
 	o2m3_1=1'b1;
-	DQmux1=1'b0;
-	DQmux2=1'b0;
+	DQmux1=1'b1;
+	DQmux2=1'b1;
 	floporlatch=1'b0;
 	Q=1'b0;
      end // initial begin

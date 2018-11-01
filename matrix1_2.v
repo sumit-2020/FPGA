@@ -1,66 +1,55 @@
 `timescale 1ns / 1ps
 
-module matrix1_2(wires);
+module matrix1_2(wtop,wbottom,wright,wleft);
    
-   inout [18:1] wires;
-
-   reg [5-1:0] driverforwire1;
-   reg [5-1:0] driverforwire2;
-   reg [5-1:0] driverforwire3;
-   reg [5-1:0] driverforwire4;
-   reg [5-1:0] driverforwire5;
-   reg [5-1:0] driverforwire6;
-   reg [5-1:0] driverforwire7;
-   reg [5-1:0] driverforwire8;
-   reg [5-1:0] driverforwire9;
-   reg [5-1:0] driverforwire10;
-   reg [5-1:0] driverforwire11;
-   reg [5-1:0] driverforwire12;
-   reg [5-1:0] driverforwire13;
-   reg [5-1:0] driverforwire14;
-   reg [5-1:0] driverforwire15;
-   reg [5-1:0] driverforwire16;
-   reg [5-1:0] driverforwire17;
-   reg [5-1:0] driverforwire18;
+   inout [5-1:0] wtop,wbottom;
+   inout [4-1:0] wleft,wright;   
+   reg [6-1:0] dtop[5-1:0];
+   reg [6-1:0] dbottom[5-1:0];
+   reg [6-1:0] dleft[4-1:0];
+   reg [6-1:0] dright[4-1:0];
+   
    
    initial
      begin
-	driverforwire1 	 = 5'b00000;
-	driverforwire2 	 = 5'b00000;
-	driverforwire3 	 = 5'b00000;
-	driverforwire4 	 = 5'b00000;
-	driverforwire5 	 = 5'b00000;
-	driverforwire6 	 = 5'b00000;
-	driverforwire7 	 = 5'b00000;
-	driverforwire8 	 = 5'b00000;
-	driverforwire9 	 = 5'b00000;
-	driverforwire10  = 5'b00000;
-	driverforwire11  = 5'b00000;
-	driverforwire12  = 5'b00000;
-	driverforwire13  = 5'b00000;
-	driverforwire14  = 5'b00000;
-	driverforwire15  = 5'b00000;
-	driverforwire16  = 5'b00000;
-	driverforwire17  = 5'b00000;
-	driverforwire18  = 5'b00000;
-     end
-   assign wires[1]  = ( driverforwire1 == 5'b00000 ) ? 1'bz : wires[driverforwire1];
-   assign wires[2]  = ( driverforwire2 == 5'b00000 ) ? 1'bz : wires[driverforwire2];
-   assign wires[3]  = ( driverforwire3 == 5'b00000 ) ? 1'bz : wires[driverforwire3];
-   assign wires[4]  = ( driverforwire4 == 5'b00000 ) ? 1'bz : wires[driverforwire4];
-   assign wires[5]  = ( driverforwire5 == 5'b00000 ) ? 1'bz : wires[driverforwire5];
-   assign wires[6]  = ( driverforwire6 == 5'b00000 ) ? 1'bz : wires[driverforwire6];
-   assign wires[7]  = ( driverforwire7 == 5'b00000 ) ? 1'bz : wires[driverforwire7];
-   assign wires[8]  = ( driverforwire8 == 5'b00000 ) ? 1'bz : wires[driverforwire8];
-   assign wires[9]  = ( driverforwire9 == 5'b00000 ) ? 1'bz : wires[driverforwire9];
-   assign wires[10]  = ( driverforwire10 == 5'b00000 ) ? 1'bz : wires[driverforwire10];
-   assign wires[11]  = ( driverforwire11 == 5'b00000 ) ? 1'bz : wires[driverforwire11];
-   assign wires[12]  = ( driverforwire12 == 5'b00000 ) ? 1'bz : wires[driverforwire12];
-   assign wires[13]  = ( driverforwire13 == 5'b00000 ) ? 1'bz : wires[driverforwire13];
-   assign wires[14]  = ( driverforwire14 == 5'b00000 ) ? 1'bz : wires[driverforwire14];
-   assign wires[15]  = ( driverforwire15 == 5'b00000 ) ? 1'bz : wires[driverforwire15];
-   assign wires[16]  = ( driverforwire16 == 5'b00000 ) ? 1'bz : wires[driverforwire16];
-   assign wires[17]  = ( driverforwire17 == 5'b00000 ) ? 1'bz : wires[driverforwire17];
-   assign wires[18]  = ( driverforwire18 == 5'b00000 ) ? 1'bz : wires[driverforwire18];
+	dtop[0]     = 6'b000000;
+	dtop[1]     = 6'b000000;
+	dtop[2]     = 6'b000000;
+	dtop[3]     = 6'b000000;
+	dtop[4]     = 6'b000000;
+	dbottom[0]  = 6'b000000;
+	dbottom[1]  = 6'b000000;
+	dbottom[2]  = 6'b000000;
+	dbottom[3]  = 6'b000000;
+	dbottom[4]  = 6'b000000;
+	dleft[0]    = 6'b000000;
+	dleft[1]    = 6'b000000;
+	dleft[2]    = 6'b000000;
+	dleft[3]    = 6'b000000;
+	dright[0]   = 6'b000011;
+	dright[1]   = 6'b000000;
+	dright[2]   = 6'b000000;
+	dright[3]   = 6'b000000;
+     end // initial begin
+  
+   
+   generate
+      genvar i;
+      for(i=0;i<5;i=i+1)
+	begin
+           assign wtop[i]    = (dtop[i][2:0]   == 3'd1)?wtop[dtop[i][5:3]]   :(dtop[i][2:0]   == 3'd2)?wright[dtop[i][5:3]]   :(dtop[i][2:0]   == 3'd3)?wbottom[dtop[i][5:3]]   :(dtop[i][2:0]   == 3'd4)?wleft[dtop[i][5:3]]   :1'bz;
+           assign wbottom[i] = (dbottom[i][2:0]== 3'd1)?wtop[dbottom[i][5:3]]:(dbottom[i][2:0]== 3'd2)?wright[dbottom[i][5:3]]:(dbottom[i][2:0]== 3'd3)?wbottom[dbottom[i][5:3]]:(dbottom[i][2:0]== 3'd4)?wleft[dbottom[i][5:3]]:1'bz;
+	end
+   endgenerate
+
+     generate
+      genvar j;
+      for(j=0;j<4;j=j+1)
+	begin
+           assign wleft[j]  = (dleft[j][2:0] == 3'd1)?wtop[dleft[j][5:3]] :(dleft[j][2:0] == 3'd2)?wright[dleft[j][5:3]] :(dleft[j][2:0] == 3'd3)?wbottom[dleft[j][5:3]] :(dleft[j][2:0] == 3'd4)?wleft[dleft[j][5:3]] :1'bz;
+           assign wright[j] = (dright[j][2:0]== 3'd1)?wtop[dright[j][5:3]]:(dright[j][2:0]== 3'd2)?wright[dright[j][5:3]]:(dright[j][2:0]== 3'd3)?wbottom[dright[j][5:3]]:(dright[j][2:0]== 3'd4)?wleft[dright[j][5:3]]:1'bz;
+	end
+   endgenerate
+
    
 endmodule
